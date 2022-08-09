@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Cairo', Courier, monospace;
+}
+
+:root{
+    --DarkBlue: #00264D;
+    --VeryDarkBlue: #00172D;
+    --Black: #000B18;
+    --Green: #00CCCC;
+    --logofont: font-family: 'Sen', sans-serif;
+    --textfont:  'Cairo', Courier, monospace;
+}
+
+body{
+    background-image: linear-gradient(45deg, var(--Black) 30%, var(--VeryDarkBlue) ,var(--DarkBlue) );
+}
+
+.wrapper{
+    margin: 0 auto;
+    width: 1050px;
+}
+
+section{
+    height: 100vh;
+}
+
+nav{
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+
+}
+
+.logo a{
+    color: var(--Green);
+    font-family:var(--logofont);
+    font-weight: 700;
+    font-size:xx-large;
+}
+
+nav ul li{
+    list-style: none ;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--textfont);
+    font-weight: 600;
+    transition: 400ms all;
+}
+nav ul li:not(:last-child) a::after{
+    content: "";
+    background-color: var(--Green);
+    display: block;
+    height: 3px;
+    border-radius: 15px;
+    width: 0%;
+    transition: width 500ms;
+}
+nav ul li:not(:last-child) a:hover:after{
+    width: 100%;
+}
+
+nav ul li:last-child{
+    border: 3px solid var(--Green);
+    border-radius: 15px;
+    margin-left:10px;
+
+}
+.heroContent{
+    height: 90vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: -10px;
+}
+.heroContent h1{
+    font-weight: 400;
+    font-size: 75px;
+}
+.heroContent p{
+    color: lightgray;
+}
+.heroContent span{
+    color: var(--Green);
+    font-family:var(--logofont);
+    font-weight: 800;
+
+}
+
+.blob1{
+    position: absolute;
+    z-index: -1;
+    animation: move 25s ease-in-out infinite;
+    margin-top: 3rem;
+    transform-origin: 60% 50%;
+}
+
+@keyframes move{
+    0% {
+        transform: scale(1) translate(10vw, 10px);
+    }
+    50%{
+        transform: scale(0.8,1) translate(20vw, 0) rotateY(50deg);
+        
+    }
+    100% {
+        transform: scale(1) translate(10vw, 10px);
+    }
+}
+.blob2{
+    position: absolute;
+    z-index: -3;
+    animation: move 30s ease-in-out infinite;
+    transform-origin: 60% 50%;
+}
+
+@keyframes move{
+    0% {
+        transform: scale(1) translate(10vw, 10px);
+    }
+    50%{
+        transform: scale(0.8,1) translate(20vw, 0) rotate(180deg);
+        
+    }
+    100% {
+        transform: scale(1) translate(10vw, 10px);
+    }
+}
