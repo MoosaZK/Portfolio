@@ -10,6 +10,7 @@
     --VeryDarkBlue: #00172D;
     --Black: #000B18;
     --Green: #00CCCC;
+    --DarkGreen: #004958;
     --logofont: font-family: 'Sen', sans-serif;
     --textfont:  'Cairo', Courier, monospace;
 }
@@ -27,6 +28,13 @@ section{
     height: 100vh;
 }
 
+h2{
+    color: var(--Green);
+    font-size: 40px;
+    font-weight: 700;
+
+}
+/* Nav bar Start */
 nav{
     height: 12vh;
     display: flex;
@@ -35,6 +43,7 @@ nav{
     padding: 0 5%;
 
 }
+
 
 .logo a{
     color: var(--Green);
@@ -74,8 +83,13 @@ nav ul li:last-child{
     border: 3px solid var(--Green);
     border-radius: 15px;
     margin-left:10px;
-
 }
+nav ul li:last-child:hover{
+    background-color: var(--Green);
+}
+/* Nav bar End */
+
+/* Hero Section Start */
 .heroContent{
     height: 90vh;
     color: white;
@@ -101,21 +115,22 @@ nav ul li:last-child{
 .blob1{
     position: absolute;
     z-index: -1;
-    animation: move 25s ease-in-out infinite;
+    animation: move1 25s ease-in-out infinite;
     margin-top: 3rem;
-    transform-origin: 60% 50%;
+    transform-origin: 50% 50%;
+    /* margin-left: 30vw; */
 }
 
-@keyframes move{
+@keyframes move1{
     0% {
-        transform: scale(1) translate(10vw, 10px);
+        transform: scale(1) translate(30vw, 10px);
     }
     50%{
-        transform: scale(0.8,1) translate(20vw, 0) rotateY(50deg);
+        transform: scale(0.8,1) translate(10vw, 0) rotate(-45deg);
         
     }
     100% {
-        transform: scale(1) translate(10vw, 10px);
+        transform: scale(1) translate(30vw, 10px);
     }
 }
 .blob2{
@@ -127,13 +142,96 @@ nav ul li:last-child{
 
 @keyframes move{
     0% {
-        transform: scale(1) translate(10vw, 10px);
+        transform: scale(1) translate(30vw, 10px);
     }
     50%{
-        transform: scale(0.8,1) translate(20vw, 0) rotate(180deg);
+        transform: scale(0.8,1) translate(0, 0) rotate(180deg);
         
     }
     100% {
-        transform: scale(1) translate(10vw, 10px);
+        transform: scale(1) translate(30vw, 10px);
     }
 }
+
+/* Hero Section End */
+
+
+/* About Section Start */
+
+.aboutMe{
+    width: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.aboutMe::after{
+    content: '';
+    background: var(--DarkGreen);
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 2px;
+    top: 5px;
+    margin-left: 30px;
+    
+}
+.aboutContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profilePicContainer{
+    border: 3px solid var(--Green);
+    border-radius: 50px;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--DarkGreen);
+}
+.profilePicContainer img{
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 50px;
+    
+}
+.animationLine{
+    position: absolute;
+    border: 3px solid var(--Green);
+    border-radius: 50px;
+    width: 380px;
+    height: 380px;
+    
+}
+.profilePicContainer:hover{
+
+}
+#border1:hover{
+    animation: lineMove 5s ease-in-out;
+}
+#border2:hover{
+    animation: lineMove2 4s ease-in-out;
+}
+@keyframes lineMove{
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100%{
+        transform: scale(1) translate(0, 0) rotate(90deg);
+        
+    }
+    
+}
+@keyframes lineMove2{
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    100%{
+        transform: scale(1) translate(0, 0) rotate(22deg);
+        
+    }
+    
+}
+/* Aboout Section End */
