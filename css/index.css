@@ -10,6 +10,7 @@
     --VeryDarkBlue: #00172D;
     --Black: #000B18;
     --Green: #00CCCC;
+    --MidGreen: rgba(0,204,204,0.2);
     --DarkGreen: #004958;
     --logofont: font-family: 'Sen', sans-serif;
     --textfont:  'Cairo', Courier, monospace;
@@ -85,7 +86,7 @@ nav ul li:last-child{
     margin-left:10px;
 }
 nav ul li:last-child:hover{
-    background-color: var(--Green);
+    background-color: var(--MidGreen);
 }
 /* Nav bar End */
 
@@ -177,61 +178,79 @@ nav ul li:last-child:hover{
 }
 .aboutContainer{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+
+.picContainer{
+    width: 400px;
+    height: 400px;
+    
 }
 .profilePicContainer{
-    border: 3px solid var(--Green);
+    border: 4px solid var(--Green);
     border-radius: 50px;
-    width: 380px;
-    height: 380px;
+    width: 360px;
+    height: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--DarkGreen);
 }
 .profilePicContainer img{
-    width: 360px;
-    height: 360px;
+    width: 340px;
+    height: 340px;
     object-fit: cover;
     border-radius: 50px;
     
 }
 .animationLine{
     position: absolute;
-    border: 3px solid var(--Green);
+    border: 4px solid var(--Green);
     border-radius: 50px;
-    width: 380px;
-    height: 380px;
-    
-}
-.profilePicContainer:hover{
+    width: 360px;
+    height: 360px;
+    transition: all 1s ease-in-out;
+    z-index: -1;
 
 }
-#border1:hover{
-    animation: lineMove 5s ease-in-out;
+
+
+.picContainer:hover #border1
+{
+   transform: rotate(70deg);
 }
-#border2:hover{
-    animation: lineMove2 4s ease-in-out;
+.picContainer:hover #border2
+{
+    transform: rotate(45deg);
 }
-@keyframes lineMove{
-    0% {
-        transform: scale(1) translate(0, 0);
-    }
-    100%{
-        transform: scale(1) translate(0, 0) rotate(90deg);
-        
-    }
-    
+.picContainer:hover #border3
+{
+    transform: rotate(23deg);
 }
-@keyframes lineMove2{
-    0% {
-        transform: scale(1) translate(0, 0);
-    }
-    100%{
-        transform: scale(1) translate(0, 0) rotate(22deg);
-        
-    }
-    
+#aboutSection .description{
+    display: flex;
+    width: 50%;
+    border: 2px solid yellow;
+    /* background-image: linear-gradient(); */
 }
+.desNav{
+    border: 2px solid plum;
+    width: 600px;
+    height: 10%;
+    background-color: var(--DarkGreen);
+}
+.desNav ul{
+    display: flex;
+    justify-content:space-between;
+    list-style: none;
+}
+.desNav ul li{
+    margin: auto;
+}
+.desNav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
 /* Aboout Section End */
