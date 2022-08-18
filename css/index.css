@@ -1,8 +1,8 @@
 *{
-    padding: 0;
-    margin: 0;
     text-decoration: none;
     font-family:  'Cairo', Courier, monospace;
+    padding: 0;
+    margin: 0;
 }
 
 :root{
@@ -17,6 +17,9 @@
     --logofont: 'Sen', sans-serif;
     --textfont:  'Cairo', Courier, monospace;
 }
+html {
+    scroll-behavior: smooth;
+  }
 
 body{
     background-image: linear-gradient(45deg, var(--Black) 30%, var(--VeryDarkBlue) ,var(--DarkBlue) );
@@ -42,37 +45,52 @@ p{
 }
 /* Nav bar Start */
 nav{
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 90%;
     height: 12vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 99999;
     padding: 0 5%;
+    transition: all 300ms ease-in-out;
 
 }
 
-
+nav ul{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
 .logo a{
+    position: relative;
     color: var(--Green);
     font-family:var(--logofont);
     font-weight: 700;
     font-size:xx-large;
 }
-
 nav ul li{
+    position: relative;
     list-style: none ;
     display: inline-block;
     padding: 10px 20px;
 }
 
 nav ul li a{
+    position: relative;
     color: white;
     text-decoration: none;
-    font-weight: bold;
     font-family: var(--textfont);
-    font-weight: 600;
+    font-weight: 400;
     transition: 400ms all;
+    font-size: 18px;
 }
-nav ul li:not(:last-child) a::after{
+nav ul li:not(:nth-child(5)) a::after{
     content: "";
     background-color: var(--Green);
     display: block;
@@ -85,20 +103,118 @@ nav ul li:not(:last-child) a:hover:after{
     width: 100%;
 }
 
-nav ul li:last-child{
+nav ul li:nth-child(5){
     border: 3px solid var(--Green);
     border-radius: 15px;
     margin-left:10px;
 }
-nav ul li:last-child:hover{
+nav ul li:nth-child(5):hover{
     background-color: var(--MidGreen);
 }
+nav .socialLinks{
+    display: none;
+}
+nav .socialLinks .linksContainer a{
+    border: none;
+    border-radius: 50%;
+    color: var(--Green);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 100ms ease-in-out;
+}
+
+.scrollDown nav{
+    transform: translate3d(0, -100%, 0);
+}
+.scrollUp nav{
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px  var(--VeryDarkBlue);
+}
+.burger{
+    display: none;
+    cursor: pointer;
+}
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: var(--Green);
+    margin: 5px;
+    border-radius: 10px;
+    z-index: 9999;
+}
+.line2{
+    transform: translateX(-5px);
+    transition: all 200ms ease;
+}
+ 
+/* Media Query for low resolution  Tablets, Ipads */
+@media (max-width: 767px) {
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        /* width: 46vw; */
+        top: 0vh;
+        background-image: linear-gradient(45deg, #003333, #001128);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-top-left-radius: 80% 50%;
+        border-top-right-radius: 0 0;
+        border-bottom-right-radius: 0 0;
+        border-bottom-left-radius: 100% 50%;
+        transform:  translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+        z-index: 9999;
+    }
+    .nav-active{
+        transform:  translateX(0%);
+    }
+    nav .socialLinks{
+        display: flex;
+        margin-top: 20px;
+    }
+    @keyframes navLinkFade{
+        from{
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    .burgerMove .line2{
+        transform: translateX(5px);
+    }
+
+
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    
+}
+ 
+
 /* Nav bar End */
 
 /* Hero Section Start */
 .heroContent{
     height: 90vh;
-    color: white;
+    color: var(--lightGrey);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -107,9 +223,11 @@ nav ul li:last-child:hover{
 .heroContent h1{
     font-weight: 400;
     font-size: 75px;
+    margin: 0;
 }
 .heroContent p{
     color: lightgray;
+    font-size: 20px;
 }
 .heroContent span{
     color: var(--Green);
@@ -123,8 +241,8 @@ nav ul li:last-child:hover{
     z-index: -1;
     animation: move1 25s ease-in-out infinite;
     margin-top: 3rem;
+    transform: translateY(90px);
     transform-origin: 50% 50%;
-    /* margin-left: 30vw; */
 }
 
 @keyframes move1{
@@ -143,19 +261,19 @@ nav ul li:last-child:hover{
     position: absolute;
     z-index: -3;
     animation: move 30s ease-in-out infinite;
-    transform-origin: 60% 50%;
+    transform-origin: 50% 50%;
 }
 
 @keyframes move{
     0% {
-        transform: scale(1) translate(30vw, 10px);
+        transform: scale(1) translate(30vw, 0px);
     }
     50%{
-        transform: scale(0.8,1) translate(0, 0) rotate(180deg);
+        transform: scale(0.8,1) translate(0, 180px) rotate(180deg);
         
     }
     100% {
-        transform: scale(1) translate(30vw, 10px);
+        transform: scale(1) translate(30vw, 0px);
     }
 }
 
@@ -217,9 +335,8 @@ nav ul li:last-child:hover{
     height: 360px;
     transition: all 1s ease-in-out;
     z-index: -1;
-
+    transform: rotate(70deg);
 }
-
 
 .picContainer:hover #border1
 {
@@ -233,28 +350,35 @@ nav ul li:last-child:hover{
 {
     transform: rotate(23deg);
 }
-#aboutSection .description{
+.aboutContainer{
     display: flex;
-    width: 50%;
+    align-items: center;
+    justify-content: space-around;
 }
 .description{
     display: flex;
+    width: 50%;
+    height: 50vh;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .desNav{
     width: 400px;
     height: 2em;
     margin: 0 auto;
-    border-bottom: 2px solid var(--DarkGreen);
-    transform: skewX(-13deg);
+    border-bottom: 3px solid var(--DarkGreen);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* transform: skewX(-13deg); */
 }
 .desNav ul{
     display: flex;
     align-items: center;
     justify-content:space-around;
     list-style: none;
+    width: 100%;
 }
 .desNav ul li{
     padding: 1px 10px;
@@ -373,7 +497,7 @@ nav ul li:last-child:hover{
 
 /* Project Section Start */
 #projectSection{
-    margin-top: 3rem;
+    margin-top: 10rem;
     height: 200vh;
 }
 .projectLine{
@@ -440,10 +564,16 @@ nav ul li:last-child:hover{
     box-shadow: 3px 3px 10px var(--VeryDarkBlue);
     margin-left: 5rem;
 }
-.leftBox a{
+.leftBox a i{
     margin-left: 10px;
-    color: white;
+    color: var(--Green);
+    transform: scale(0.8);
+    transition: all 200ms ease-in-out;
 }
+.leftBox a i:hover{
+    transform: scale(0.9);
+}
+
 .fa-caret-right{
     color: var(--Green);
     margin-inline:auto ;
@@ -496,26 +626,33 @@ nav ul li:last-child:hover{
     color:rgba(255, 255, 255, 0.805);
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-content:space-evenly;
     text-align: center;
     height: 80vh;
+    margin-top: 2rem;
 }
 .contactContentContainer h3{
-    font-size: 30px;
+    font-size: 35px;
+    margin: 0;
 }
 
 .contactContentContainer p{
     color: var(--lightGrey);
+    font-size: 20px;
+    margin: 0;
 }
 .contactContentContainer a button{
     background: transparent;
-    border: 3px solid var(--Green);
-    border-radius: 20px;
-    padding: 0.5rem 2rem;
+    border: 3px solid var(--Green); 
+    border-radius: 10px;
+    height: 3rem;
+    padding: 0 2rem;
     color: var(--Green);
-    font-size: 20px;
     transition: all 200ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .contactContentContainer a button:hover{
     transform: scale(1.1);
@@ -529,9 +666,9 @@ nav ul li:last-child:hover{
     width: 20%;
 }
 .linksContainer a{
-    border: 2px solid var(--DarkGreen);
+    border: 2px solid var(--Green);
     border-radius: 50%;
-    color: var(--DarkGreen);
+    color: var(--DarkBlue);
     width: 40px;
     height: 40px;
     display: flex;
@@ -544,6 +681,17 @@ nav ul li:last-child:hover{
     color: var(--Green);
     background-color: var(--DarkGreen);
 }
-
+.contactContentContainer button h4{
+    font-size: 25px;
+}
 /* Contact End */
+.wave{
+    position: relative;
+}
+.waves{
+    position: absolute;
+    z-index: -10;
+    bottom: 0;
+}
+
 
