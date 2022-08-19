@@ -35,7 +35,7 @@ const navSlide = () => {
             if(link.style.animation){
                 link.style.animation = '';
             }
-            link.style.animation = 'navLinkFade 0.5s ease forwards 2s';
+            link.style.animation = 'navLinkFade 0.5s ease forwards';
         });
 
         burger.classList.toggle("burgerMove");

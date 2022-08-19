@@ -16,6 +16,7 @@
     --DarkGreen: #004958;
     --logofont: 'Sen', sans-serif;
     --textfont:  'Cairo', Courier, monospace;
+    --fs-xxxl: clamp(0.1rem, 3vw + 1rem, 4rem);
 }
 html {
     scroll-behavior: smooth;
@@ -27,13 +28,23 @@ body{
 
 .wrapper{
     margin: 0 auto;
-    width: 1050px;
+    width: 80%;
+    flex-wrap: wrap;
+    /* gap: 2em; */
 }
 
+/* 
+.wrapper > *{
+    flex-basis: 90%;
+    flex-grow: 1;
+} */
+/* 
 section{
     height: 100vh;
+} */
+header:not(:nth-child(1)){
+    flex-basis: 100%;
 }
-
 h2{
     color: var(--Green);
     font-size: 40px;
@@ -149,83 +160,27 @@ nav .socialLinks .linksContainer a{
     transform: translateX(-5px);
     transition: all 200ms ease;
 }
- 
-/* Media Query for low resolution  Tablets, Ipads */
-@media (max-width: 767px) {
-    body{
-        overflow-x: hidden;
-    }
-    .nav-links{
-        position: absolute;
-        right: 0px;
-        height: 92vh;
-        /* width: 46vw; */
-        top: 0vh;
-        background-image: linear-gradient(45deg, #003333, #001128);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border-top-left-radius: 80% 50%;
-        border-top-right-radius: 0 0;
-        border-bottom-right-radius: 0 0;
-        border-bottom-left-radius: 100% 50%;
-        transform:  translateX(100%);
-        transition: transform 0.5s ease-in;
-    }
-    .nav-links li{
-        opacity: 0;
-    }
-    .burger{
-        display: block;
-        z-index: 9999;
-    }
-    .nav-active{
-        transform:  translateX(0%);
-    }
-    nav .socialLinks{
-        display: flex;
-        margin-top: 20px;
-    }
-    @keyframes navLinkFade{
-        from{
-            opacity: 0;
-            transform: translateX(50px);
-        }
-        to{
-            opacity: 1;
-            transform: translateX(0px);
-        }
-    }
-    .burgerMove .line2{
-        transform: translateX(5px);
-    }
-
-
-}
-
-/* Media Query for Mobile Devices */
-@media (max-width: 480px) {
-    
-}
- 
 
 /* Nav bar End */
 
 /* Hero Section Start */
 .heroContent{
-    height: 90vh;
+    height: 25vh;
     color: var(--lightGrey);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: -10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 40vh 0;
+}
+.heroHeading{
+    height: min-content;
 }
 .heroContent h1{
     font-weight: 400;
-    font-size: 75px;
+    font-size: var(--fs-xxxl);
     margin: 0;
 }
 .heroContent p{
+    height: fit-content;
     color: lightgray;
     font-size: 20px;
 }
@@ -281,31 +236,39 @@ nav .socialLinks .linksContainer a{
 
 
 /* About Section Start */
+.aboutHeadingContainer{
+    width: 100%;
+}
 
-.aboutMe{
-    width: auto;
+.aboutLine{
+    width: 100%;
+    height: 45px;
     position: relative;
     display: flex;
     align-items: center;
-}
-.aboutMe::after{
-    content: '';
-    background: var(--DarkGreen);
-    display: block;
-    position: relative;
-    width: 80%;
-    height: 2px;
-    top: 5px;
-    margin-left: 30px;
-    
-}
-.aboutContainer{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 4rem;
+    justify-content: flex-start;
 }
 
+.aboutLine::after{
+    content: '';
+    background: var(--MidGreen);
+    position: absolute;
+    width: 82%;
+    height: 3px;
+    margin:auto; 
+    right: 0;
+}
+.aboutContainer{
+    margin: 5rem 2rem;
+    display: grid;
+    /* grid-template-columns: 1fr ; */
+    grid-template-areas: "picContainer description";
+
+}
+
+
 .picContainer{
+    grid-area: picContainer;
     width: 400px;
     height: 400px;
     
@@ -350,14 +313,10 @@ nav .socialLinks .linksContainer a{
 {
     transform: rotate(23deg);
 }
-.aboutContainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
 .description{
+    grid-area: description;
     display: flex;
-    width: 50%;
+    width:min-content;
     height: 50vh;
     flex-direction: column;
     align-items: center;
@@ -435,7 +394,7 @@ nav .socialLinks .linksContainer a{
     content: '';
     background: var(--DarkGreen);
     position: absolute;
-    width: 45%;
+    width: 40%;
     height: 3px;
     margin:auto; 
 }
@@ -446,13 +405,52 @@ nav .socialLinks .linksContainer a{
 .skillLine::before{
     right: 0;
 }
-.skillsContainer{
+.skillsContainerRow1{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* row-gap: 1rem; */
-    /* margin-top: 3rem; */
+    grid-column-gap: 1rem;
+    grid-template-areas: 
+    "Tech FrontEnd Programming";
+    margin: 2rem 3rem 0 3rem;
+    height: 320px;   
+}
+.skillsContainerRow2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-template-areas: 
+    "Design AppDev";
+    height: 320px;   
+    margin: 0 3rem 2rem 3rem;
+}
+#tech{
+    
+    grid-area: Tech;
+    justify-self: end;
+    align-self:flex-end;
+}
+#frontEnd{
+    
+    justify-self: center;
+    align-self:flex-start;
+    grid-area: FrontEnd;
+}
+#programming{
+    justify-self: start;
+    align-self:center;
+    grid-area: Programming;
+}
+#design{
+    grid-area: Design;
+    justify-self: end;
+    align-self:flex-end;
+}
+#appDev{
+    grid-area: AppDev;
 }
 .skills{
+    width: 280px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -460,7 +458,6 @@ nav .socialLinks .linksContainer a{
     background-color: var(--DarkBlue);
     text-align: center;
     border-radius: 1rem;
-    transform: scale(0.9);
 }
  .imagesContainer{
     height: 7rem;
@@ -694,4 +691,94 @@ nav .socialLinks .linksContainer a{
     bottom: 0;
 }
 
+/* Media Query for low resolution  Tablets, Ipads */
+@media (max-width: 767px) {
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        /* width: 46vw; */
+        top: 0vh;
+        background-image: linear-gradient(45deg, #003333, #001128);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-top-left-radius: 80% 50%;
+        border-top-right-radius: 0 0;
+        border-bottom-right-radius: 0 0;
+        border-bottom-left-radius: 100% 50%;
+        transform:  translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+        z-index: 9999;
+    }
+    .nav-active{
+        transform:  translateX(0%);
+    }
+    nav .socialLinks{
+        display: flex;
+        margin-top: 20px;
+    }
+    @keyframes navLinkFade{
+        from{
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    .burgerMove .line2{
+        transform: translateX(5px);
+    }
 
+    .aboutContainer{
+        /* grid-template-columns: 1fr; */
+        grid-template-areas: 
+        "picContainer" 
+        "description";
+    }
+    .skillsContainerRow1{
+        position: relative;
+        display: grid;
+        grid-template-columns: none;
+        grid-column-gap: 1rem;
+        grid-template-areas: 
+        "Tech" "FrontEnd" "Programming";
+        height: max-content;
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 2rem;
+    }
+    .skillsContainerRow2{
+        position: relative;
+        display: grid;
+        grid-template-columns: none;
+        grid-column-gap: 1rem;
+        grid-template-areas: 
+        "Design" "AppDev";
+        height: max-content;  
+        justify-content: center;
+        align-items: center; 
+        grid-row-gap: 2rem;
+        margin-top: 2rem;
+    }
+    .aboutLine::after{
+        width: 68%;
+    }
+
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    
+}

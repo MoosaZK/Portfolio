@@ -67,14 +67,16 @@
             </div>
             <div class="heroContent">
                 <p> HELLO, MY NAME IS</p>
-                <h1>
-                    <span>M</span>
-                    OOSA &nbsp;
-                    <span> Z</span>
-                    AFAR &nbsp
-                    <span>K</span>
-                    HAN
-                </h1>
+                <div class="heroHeading">
+                    <h1>
+                        <span>M</span>
+                        OOSA &nbsp;
+                        <span> Z</span>
+                        AFAR &nbsp
+                        <span>K</span>
+                        HAN
+                    </h1>
+                </div>
                 <p>I am a Young, but experienced, Software Engineer, WEB & APP Developer</p>
             </div>
         </div>
@@ -85,9 +87,9 @@
     <section id="aboutSection">
         <div class="wrapper">
             <div class="aboutHeadingContainer">
-                <header>
-                    <h2 class="aboutMe">About Me; </h2>
-                </header>
+                <div class="aboutLine">
+                    <h2 class="projectHeading">About Me; </h2>
+                </div>
             </div>
 
             <div class="aboutContainer">
@@ -128,9 +130,10 @@
                     <h2 class="skillHeading">Skill; </h2>
                 </div>
             </header>
-            <!-- Tech skill 1 Start -->
-            <div class="skillsContainer">
-                <div class="skills skill1">
+            <div class="skillsContainerRow1">
+                
+                <!-- Tech skill 1 Start -->
+                <div class="skills" id="tech">
                     <div class="imagesContainer">
                         <img src="img/icons8-git.svg" alt="">
                         <img src="img/icons8-docker.svg" alt="">
@@ -143,7 +146,7 @@
                 <!-- Tech skill 1 End -->
 
                 <!-- FrontEnd skill 2 Start -->
-                <div class="skills skill2">
+                <div class="skills" id="frontEnd">
                     <div class="imagesContainer">
                         <img src="img/icons8-html-5.svg" alt="">
                         <img src="img/icons8-javaScript-5.svg" alt="">
@@ -157,7 +160,7 @@
                 <!-- Frontend skill 2 End -->
 
                 <!-- Programming skill 3 Start -->
-                <div class="skills skill3">
+                <div class="skills" id="programming">
                     <div class="imagesContainer">
                         <img src="img/icons8-python.svg" alt="">
                         <img src="img/icons8-java.svg" alt="">
@@ -168,9 +171,10 @@
                     </div>
                 </div>
                 <!-- Programming skill 3 End -->
-
+            </div>
+            <div class="skillsContainerRow2">
                 <!-- Design Skill 4 Start -->
-                <div class="skills skill4">
+                <div class="skills" id="design">
                     <div class="imagesContainer">
                         <img src="img/icons8-figma.svg" alt="">
                     </div>
@@ -182,7 +186,7 @@
                 <!-- Desing Skill 4 End -->
 
                 <!-- AppDev Skill 5 Start -->
-                <div class="skills skill5">
+                <div class="skills" id="appDev">
                     <div class="imagesContainer">
                         <img src="img/icons8-google-play.svg" alt="">
                         <img src="img/icons8-app-store.svg" alt="">
