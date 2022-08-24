@@ -40,30 +40,32 @@
     <script src="js/index.js"></script>
     <section id="heroSection">
         <div class="wrapper">
-            <div class="blob blob1">
-                <svg width="657" height="500" viewBox="0 0 657 608" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M655.976 294.135C664.307 562.871 500.775 608 305 608C109.225 608 -29.0231 447.5 6.50002 275C46.2021 82.2072 180.225 0.5 376 0.5C571.775 0.5 648.5 53 655.976 294.135Z" fill="url(#paint0_linear_11_16)"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_11_16" x1="606.5" y1="18.5" x2="-14.0001" y2="619" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#004958"/>
-                    <stop offset="1" stop-color="#80DAEB" stop-opacity="0"/>
-                    </linearGradient>
-                    </defs>
-                    </svg>
-                    
-                    
-            </div>
-            <div class="blob blob2">
-                <svg width="681" height="500" viewBox="0 0 681 617" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M678.111 322.784C704.917 540.859 530.788 616.676 349.056 616.676C167.323 616.676 210.5 485 61 348.5C-86.5375 213.792 59.7676 0.5 241.5 0.5C423.232 0.5 642 29 678.111 322.784Z" fill="url(#paint0_linear_11_14)"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_11_14" x1="-1.29955e-05" y1="1.43451e-05" x2="681" y2="617" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#004958" stop-opacity="0.2"/>
-                    <stop offset="1" stop-color="#004958"/>
-                    </linearGradient>
-                    </defs>
-                    </svg>
-                    
+            <div class="blobContainer">
+                <div class="blob blob1">
+                    <svg id="svgBlob1" width="30em" height="30em" viewBox="0 0 657 608" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M655.976 294.135C664.307 562.871 500.775 608 305 608C109.225 608 -29.0231 447.5 6.50002 275C46.2021 82.2072 180.225 0.5 376 0.5C571.775 0.5 648.5 53 655.976 294.135Z" fill="url(#paint0_linear_11_16)"/>
+                        <defs>
+                        <linearGradient id="paint0_linear_11_16" x1="606.5" y1="18.5" x2="-14.0001" y2="619" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#004958"/>
+                        <stop offset="1" stop-color="#80DAEB" stop-opacity="0"/>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+                        
+                        
+                </div>
+                <div class="blob blob2">
+                    <svg id="svgBlob2"width="27em" height="27em" viewBox="0 0 681 617" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M678.111 322.784C704.917 540.859 530.788 616.676 349.056 616.676C167.323 616.676 210.5 485 61 348.5C-86.5375 213.792 59.7676 0.5 241.5 0.5C423.232 0.5 642 29 678.111 322.784Z" fill="url(#paint0_linear_11_14)"/>
+                        <defs>
+                        <linearGradient id="paint0_linear_11_14" x1="-1.29955e-05" y1="1.43451e-05" x2="681" y2="617" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#004958" stop-opacity="0.2"/>
+                        <stop offset="1" stop-color="#004958"/>
+                        </linearGradient>
+                        </defs>
+                        </svg>
+                        
+                </div>
             </div>
             <div class="heroContent">
                 <p> HELLO, MY NAME IS</p>
@@ -87,13 +89,11 @@
     <section id="aboutSection">
         <div class="wrapper">
             <div class="aboutHeadingContainer">
-                <div class="aboutLine">
-                    <h2 class="projectHeading">About Me; </h2>
-                </div>
+                    <h2 class="subHeading" id="aboutHeading">About Me; </h2>
             </div>
 
             <div class="aboutContainer">
-                <div class="picContainer">
+                <div class="picContainer" >
                     <div class="animationLine" id="border1"></div>
                     <div class="animationLine" id="border2"></div>
                     <div class="animationLine" id="border3"></div>
@@ -126,9 +126,7 @@
     <section id="skillSection">
         <div class="wrapper">
             <header>
-                <div class="skillLine">
-                    <h2 class="skillHeading">Skill; </h2>
-                </div>
+                    <h2 class="subHeading" id="skillHeading">Skill; </h2>
             </header>
             <div class="skillsContainerRow1">
                 
@@ -208,29 +206,27 @@
     <section id="projectSection">
         <div class="wrapper">
             <header>
-                <div class="projectLine">
-                    <h2 class="projectHeading">Project; </h2>
-                </div>
+                    <h2 class="subHeading" id="projectHeading">Project; </h2>
             </header>
             <div class="softwareContainer">
                 <h3 class="projectSubHeading">Software Dev</h3>
                     
                 <div class="projectContainer">
-                    <div class="porjectsContainer porject1Container">
+                    <div class="porjectsContainer" id="porject1Container">
                         <h4>Hotel Management System</h4>
                         <span>semester 1 -2020</span>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quibusdam sequi labore voluptates aperiam eaque tempore quos sed provident 
                             possimus culpa dolorum velit libero quia adipisci, molestiae quam, facere, sint voluptas? Possimus, fugiat eos nihil commodi architecto,
                             voluptates error labore accusamus atque adipisci laudantium. Libero ad quod facere dolorem cumque?</p>
                     </div>
-                    <div class="porjectsContainer porject2Container">
+                    <div class="porjectsContainer" id="porject2Container">
                         <h4>Dictionary System</h4>
                         <span>semester 2 -2020</span>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quibusdam sequi labore voluptates aperiam eaque tempore quos sed provident
                             possimus culpa dolorum velit libero quia adipisci, molestiae quam, facere, sint voluptas? Possimus, 
                             fugiat eos nihil commodi architecto, voluptates error labore accusamus atque adipisci laudantium. Libero ad quod facere dolorem cumque?</p>
                     </div>
-                    <div class="porjectsContainer porject3Container">
+                    <div class="porjectsContainer" id="porject3Container">
                         <h4>ChatBox Threads</h4>
                         <span>semester 3 -2020</span>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo quibusdam sequi labore voluptates aperiam eaque tempore quos sed 
@@ -259,9 +255,7 @@
     <section id="contactSection">
         <div class="wrapper">
             <header>
-                <div class="contactLine">
-                    <h2 class="contactHeading">Contact; </h2>
-                </div>
+                    <h2 class="subHeading" id="contactHeading">Contact; </h2>
             </header>
 
             <div class="contactContentContainer">

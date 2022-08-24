@@ -20,6 +20,7 @@
 }
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
 body{
@@ -28,26 +29,39 @@ body{
 
 .wrapper{
     margin: 0 auto;
-    width: 80%;
+    width: 80vw;
     flex-wrap: wrap;
-    /* gap: 2em; */
 }
 
-/* 
-.wrapper > *{
-    flex-basis: 90%;
-    flex-grow: 1;
-} */
-/* 
+
 section{
-    height: 100vh;
-} */
+    height: max-content;
+    position: relative;
+    margin: 0 auto;
+}
 header:not(:nth-child(1)){
     flex-basis: 100%;
 }
+
+.subHeading{
+    display: flex;
+    flex-direction: row;
+}
+.subHeading::after, #skillHeading::before{
+    content: "";
+    flex: 1 1;
+    border-bottom: 3px solid var(--MidGreen);
+    margin: auto;
+}
+  #skillHeading:before {
+    margin-right: 10px
+  }
+  .subHeading:after {
+    margin-left: 10px
+  }
 h2{
     color: var(--Green);
-    font-size: 40px;
+    font-size: clamp(1.5rem,5vw,2rem);
     font-weight: 700;
 
 }
@@ -164,6 +178,7 @@ nav .socialLinks .linksContainer a{
 /* Nav bar End */
 
 /* Hero Section Start */
+
 .heroContent{
     height: 25vh;
     color: var(--lightGrey);
@@ -194,7 +209,7 @@ nav .socialLinks .linksContainer a{
 .blob1{
     position: absolute;
     z-index: -1;
-    animation: move1 25s ease-in-out infinite;
+    animation: move1 30s ease-in-out infinite;
     margin-top: 3rem;
     transform: translateY(90px);
     transform-origin: 50% 50%;
@@ -202,33 +217,33 @@ nav .socialLinks .linksContainer a{
 
 @keyframes move1{
     0% {
-        transform: scale(1) translate(30vw, 10px);
+        transform: scale(0.8) translate(15vw, 10px);
     }
     50%{
-        transform: scale(0.8,1) translate(10vw, 0) rotate(-45deg);
+        transform: scale(0.8,1) translate(50vw, 20px) rotate(-95deg);
         
     }
     100% {
-        transform: scale(1) translate(30vw, 10px);
+        transform: scale(0.8) translate(15vw, 10px);
     }
 }
 .blob2{
     position: absolute;
     z-index: -3;
-    animation: move 30s ease-in-out infinite;
+    animation: move 50s ease-in-out infinite;
     transform-origin: 50% 50%;
 }
 
 @keyframes move{
     0% {
-        transform: scale(1) translate(30vw, 0px);
+        transform: scale(1) translate(10vw, 0px);
     }
     50%{
-        transform: scale(0.8,1) translate(0, 180px) rotate(180deg);
+        transform: scale(0.8,1) translate(50vw, 20vh) rotate(200deg);
         
     }
     100% {
-        transform: scale(1) translate(30vw, 0px);
+        transform: scale(1) translate(10vw, 0px);
     }
 }
 
@@ -240,52 +255,34 @@ nav .socialLinks .linksContainer a{
     width: 100%;
 }
 
-.aboutLine{
-    width: 100%;
-    height: 45px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.aboutLine::after{
-    content: '';
-    background: var(--MidGreen);
-    position: absolute;
-    width: 82%;
-    height: 3px;
-    margin:auto; 
-    right: 0;
-}
 .aboutContainer{
-    margin: 5rem 2rem;
+    margin: 5rem auto;
     display: grid;
-    /* grid-template-columns: 1fr ; */
     grid-template-areas: "picContainer description";
 
 }
 
 
 .picContainer{
+    position: relative;
     grid-area: picContainer;
-    width: 400px;
-    height: 400px;
+    aspect-ratio: 1/1;
+    width: min(70%, 460px);
     
 }
 .profilePicContainer{
     border: 4px solid var(--Green);
     border-radius: 50px;
-    width: 360px;
-    height: 360px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--DarkGreen);
 }
 .profilePicContainer img{
-    width: 340px;
-    height: 340px;
+    width: 90%;
+    height: 90%;
     object-fit: cover;
     border-radius: 50px;
     
@@ -294,8 +291,10 @@ nav .socialLinks .linksContainer a{
     position: absolute;
     border: 4px solid var(--Green);
     border-radius: 50px;
-    width: 360px;
-    height: 360px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     transition: all 1s ease-in-out;
     z-index: -1;
     transform: rotate(70deg);
@@ -316,14 +315,14 @@ nav .socialLinks .linksContainer a{
 .description{
     grid-area: description;
     display: flex;
-    width:min-content;
+    width:min(80vw,400px);
     height: 50vh;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
 .desNav{
-    width: 400px;
+    width: min(100%, 400px);
     height: 2em;
     margin: 0 auto;
     border-bottom: 3px solid var(--DarkGreen);
@@ -381,30 +380,6 @@ nav .socialLinks .linksContainer a{
 
 /* Skill Section Start */
 
-.skillLine{
-    width: 100%;
-    height: 45px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.skillLine::after,.skillLine::before{
-    content: '';
-    background: var(--DarkGreen);
-    position: absolute;
-    width: 40%;
-    height: 3px;
-    margin:auto; 
-}
-
-.skillLine::after{
-    left: 0;
-}
-.skillLine::before{
-    right: 0;
-}
 .skillsContainerRow1{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -493,28 +468,7 @@ nav .socialLinks .linksContainer a{
 }
 
 /* Project Section Start */
-#projectSection{
-    margin-top: 10rem;
-    height: 200vh;
-}
-.projectLine{
-    width: 100%;
-    height: 45px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
 
-.projectLine::after{
-    content: '';
-    background: var(--MidGreen);
-    position: absolute;
-    width: 85%;
-    height: 3px;
-    margin:auto; 
-    right: 0;
-}
 .softwareContainer
 {
     display: flex;
@@ -523,19 +477,29 @@ nav .socialLinks .linksContainer a{
     color: white;
 }
 .projectContainer{
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-areas: "proj1 proj2 proj3";
+    grid-column-gap: 1rem;
+    margin: auto;
     margin-top: 2rem;
 }
 .projectSubHeading{
     font-size: 28px;
 }
+#project1Container{
+    grid-area: "proj1";
+}
+#project2Container{
+    grid-area: "proj2";
+}
+#project3Container{
+    grid-area: "proj3";
+}
 .porjectsContainer{
-    width: 27%;
+    width: 85%;
     background-color: var(--DarkBlue);
     border-radius: 5px;
-    padding: 20px 20px;
-    
+    padding: 20px 20px;   
 }
 .porjectsContainer span{
     color: var(--lightGrey);
@@ -600,25 +564,9 @@ nav .socialLinks .linksContainer a{
 
 
 /* Contact Start */
-.contactLine{
-    width: 100%;
-    height: 45px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+#contactSection{
+    margin-top: 5rem;
 }
-
-.contactLine::after{
-    content: '';
-    background: var(--MidGreen);
-    position: absolute;
-    width: 85%;
-    height: 3px;
-    margin:auto; 
-    right: 0;
-}
-
 .contactContentContainer{
     color:rgba(255, 255, 255, 0.805);
     display: flex;
@@ -626,8 +574,8 @@ nav .socialLinks .linksContainer a{
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    height: 80vh;
-    margin-top: 2rem;
+    height: 70vh;
+    margin-top: 4rem;
 }
 .contactContentContainer h3{
     font-size: 35px;
@@ -687,14 +635,18 @@ nav .socialLinks .linksContainer a{
 }
 .waves{
     position: absolute;
-    z-index: -10;
     bottom: 0;
+    height: fit-content;
+    z-index: -9999;
 }
 
 /* Media Query for low resolution  Tablets, Ipads */
-@media (max-width: 767px) {
+@media (max-width: 790px) {
     body{
         overflow-x: hidden;
+    }
+    .wrapper{
+        width: 90%;
     }
     .nav-links{
         position: absolute;
@@ -712,6 +664,7 @@ nav .socialLinks .linksContainer a{
         border-bottom-left-radius: 100% 50%;
         transform:  translateX(100%);
         transition: transform 0.5s ease-in;
+        opacity: 0;
     }
     .nav-links li{
         opacity: 0;
@@ -722,6 +675,7 @@ nav .socialLinks .linksContainer a{
     }
     .nav-active{
         transform:  translateX(0%);
+        opacity: 1;
     }
     nav .socialLinks{
         display: flex;
@@ -780,5 +734,67 @@ nav .socialLinks .linksContainer a{
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
-    
+    body{
+        overflow-x: hidden;
+    }
+    .heroContent p{
+        font-size: 0.8rem;
+    }
+    .nav-links{
+        width: 90vw;
+        right: 0;
+    }
+    .aboutContainer{
+        grid-template-areas: 
+        "picContainer" 
+        "description";
+        grid-row-gap: 2rem;
+    }
+
+    .aboutContainer div{
+        margin: 0 auto;
+    }
+    .skillsContainerRow1{
+        position: relative;
+        display: grid;
+        grid-template-columns: none;
+        grid-column-gap: 1rem;
+        grid-template-areas: 
+        "Tech" "FrontEnd" "Programming";
+        height: max-content;
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 2rem;
+    }
+    .skillsContainerRow2{
+        position: relative;
+        display: grid;
+        grid-template-columns: none;
+        grid-column-gap: 1rem;
+        grid-template-areas: 
+        "Design" "AppDev";
+        height: max-content;  
+        justify-content: center;
+        align-items: center; 
+        grid-row-gap: 2rem;
+        margin-top: 2rem;
+    }
+    .projectContainer{
+        grid-template-areas: 
+        "proj1" 
+        "proj2"
+        "proj3";
+        grid-row-gap: 3rem;
+    }
+    .webDevContainer{
+        justify-content: center;
+    }
+    .leftBox{
+        margin: auto;
+    }
+    .rightBox{
+        margin: auto;
+        margin-top: 8rem;
+        width: 100%;
+    }
 }
