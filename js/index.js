@@ -26,11 +26,12 @@ const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
-
-    burger.addEventListener('click', ()=> {
+    const navAtag = document.querySelectorAll('a');
+    
+    burger.addEventListener('click', () => {
             nav.classList.toggle('nav-active');
 
-            
+             
         navLinks.forEach((link, index) => {
             if(link.style.animation){
                 link.style.animation = '';
@@ -40,9 +41,12 @@ const navSlide = () => {
 
         burger.classList.toggle("burgerMove");
     });
+    
+    navLinks.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+        burger.classList.toggle("burgerMove");
 
-
-
+    });       
 }
 
 navSlide();

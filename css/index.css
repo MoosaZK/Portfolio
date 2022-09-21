@@ -677,6 +677,10 @@ nav .socialLinks .linksContainer a{
         transform:  translateX(0%);
         opacity: 1;
     }
+    .nav-close{
+        transform: translate(100%);
+        opacity: 1;
+    }
     nav .socialLinks{
         display: flex;
         margin-top: 20px;
