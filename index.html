@@ -8,9 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
     <!-- navigation bar start -->
     <nav>
         <div class="logo"><a href="#">M Z K</a></div>
@@ -105,15 +108,46 @@
                 <div class="description">
                     <div class="desNav">
                         <ul>
-                            <li><a href="">Little Bit</a></li>
-                            <li><a href="">CurrentLy</a></li>
-                            <li><a href="">Focus</a></li>
+                            <li><a href="#bit">Little Bit</a></li>
+                            <li><a href="#currently">CurrentLy</a></li>
+                            <li><a href="#focus">Focus</a></li>
                         </ul>
                     </div>
                     <div class="contentBoxes">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem magnam quaerat magni qui eveniet maxime unde </p>
-                    </div>
 
+                        <div class="scene">
+                            <div class="cube">
+                              <div class="cube__face cube__face--front">front</div>
+                              <div class="cube__face cube__face--back">back</div>
+                              <div class="cube__face cube__face--right">right</div>
+                              <div class="cube__face cube__face--left">left</div>
+                              <div class="cube__face cube__face--top">top</div>
+                              <div class="cube__face cube__face--bottom">bottom</div>
+                            </div>
+                          </div>
+                          <p class="radio-group">
+                            <label>
+                              <input type="radio" name="rotate-cube-side" value="front" checked /> front
+                            </label>
+                            <label>
+                              <input type="radio" name="rotate-cube-side" value="right" /> right
+                            </label>
+                            <label>
+                              <input type="radio" name="rotate-cube-side" value="back" /> back
+                            </label>
+                            <label>
+                              <input type="radio" name="rotate-cube-side" value="left" /> left
+                            </label>
+                            <label>
+                              <input type="radio" name="rotate-cube-side" value="top" /> top
+                            </label>
+                            <label>
+                              <input type="radio" name="rotate-cube-side" value="bottom" /> bottom
+                            </label>
+                          </p>
+                          
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,7 +358,24 @@
         </svg>
     </div>
             
-    <!-- Waves End -->
+    <script>
+        var cube = document.querySelector('.cube');
+        var radioGroup = document.querySelector('.radio-group');
+        var currentClass = '';
 
+        function changeSide() {
+        var checkedRadio = radioGroup.querySelector(':checked');
+        var showClass = 'show-' + checkedRadio.value;
+        if ( currentClass ) {
+            cube.classList.remove( currentClass );
+        }
+        cube.classList.add( showClass );
+        currentClass = showClass;
+        }
+        // set initial side
+        changeSide();
+
+        radioGroup.addEventListener( 'change', changeSide );
+    </script>
 </body>
 </html>

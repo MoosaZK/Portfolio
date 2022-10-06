@@ -201,6 +201,7 @@ nav .socialLinks .linksContainer a{
 }
 .heroContent span{
     color: var(--Green);
+    font-size: 5rem;
     font-family:var(--logofont);
     font-weight: 800;
 
@@ -352,6 +353,66 @@ nav .socialLinks .linksContainer a{
     font-size: 16px;
 }
 .description .contentBoxes{
+    /* border: 2px solid greenyellow; */
+    margin-top: 20px;
+}
+
+
+  .scene {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #CCC;
+    margin: 80px;
+    perspective: 400px;
+  }
+  
+  .cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: transform 1s;
+  }
+  
+  .cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
+  .cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
+  .cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
+  .cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
+  .cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+  .cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+  
+  .cube__face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    line-height: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
+  
+  .cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+  .cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
+  .cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+  .cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+  .cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+  .cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+  
+  .cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+  .cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+  .cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+  .cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+  .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+  .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+  .radio-group{
+    color: white;
+  }
+  label { margin-right: 10px; }  
+
+/* .description .contentBoxes .desbox{
     color: white;
     width: 50%;
     margin:auto 0;
@@ -359,7 +420,7 @@ nav .socialLinks .linksContainer a{
     padding: 20px;
     border-radius: 15px;
     box-shadow: 3px 3px 5px var(--Green);
-}
+} */
 /* Aboout Section End */
 
 /* FadedCircle 1 Start */

@@ -48,8 +48,10 @@ const navSlide = () => {
 
     });       
 }
-
 navSlide();
+
+  
+
 
 
 //Nav Bar End
