@@ -107,17 +107,22 @@
                 </div>
                 <div class="description">
                     <div class="desNav">
-                        <ul>
-                            <li><a href="#bit">Little Bit</a></li>
-                            <li><a href="#currently">CurrentLy</a></li>
-                            <li><a href="#focus">Focus</a></li>
+                        <ul class="desNav-links">
+                            <li id="front"> Little Bit</li>
+                            <li id="right">currently</li>
+                            <li id="back">Focus</li>
                         </ul>
                     </div>
                     <div class="contentBoxes">
 
                         <div class="scene">
                             <div class="cube">
-                              <div class="cube__face cube__face--front">front</div>
+                                <div class="cube__face cube__face--front">
+                                    <h5>Little Bit</h5>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio cupiditate dicta molestias 
+                                        voluptatem sit voluptatibus dolorem placeat mollitia vel, vero, autem adipisci. Ipsam sapiente sunt vitae dignissimos,
+                                         sapiente ut rerum enim quis fuga.</p>
+                                </div>
                               <div class="cube__face cube__face--back">back</div>
                               <div class="cube__face cube__face--right">right</div>
                               <div class="cube__face cube__face--left">left</div>
@@ -125,7 +130,7 @@
                               <div class="cube__face cube__face--bottom">bottom</div>
                             </div>
                           </div>
-                          <p class="radio-group">
+                          <!-- <p class="radio-group">
                             <label>
                               <input type="radio" name="rotate-cube-side" value="front" checked /> front
                             </label>
@@ -146,7 +151,7 @@
                             </label>
                           </p>
                           
-                        
+                         -->
                     </div>
                 </div>
             </div>
@@ -359,23 +364,41 @@
     </div>
             
     <script>
+        var desNav = document.querySelectorAll('.desNav-links > li');
         var cube = document.querySelector('.cube');
         var radioGroup = document.querySelector('.radio-group');
         var currentClass = '';
+        var fCurrent = document.querySelector("#ffront");
 
-        function changeSide() {
-        var checkedRadio = radioGroup.querySelector(':checked');
-        var showClass = 'show-' + checkedRadio.value;
-        if ( currentClass ) {
-            cube.classList.remove( currentClass );
-        }
-        cube.classList.add( showClass );
-        currentClass = showClass;
-        }
-        // set initial side
-        changeSide();
+        for(let i = 0 ;i<desNav.length;i++){
+            desNav[i].addEventListener('click', () => {
+                console.log(desNav[i].value);
+                //   console.log("saa");
+                    var showClass = 'show-' + desNav[i].id;
+                    if ( currentClass ) {
+                        cube.classList.remove( currentClass );
+                    }
+                    cube.classList.add( showClass );
+                    currentClass = showClass;
 
-        radioGroup.addEventListener( 'change', changeSide );
+        });
+        }
+        
+
+        // function changeSide() {
+        //     var checkedRadio = radioGroup.querySelector(':checked');
+        //     var showClass = 'show-' + checkedRadio.value;
+            
+        //     if ( currentClass ) {
+        //         cube.classList.remove( currentClass );
+        //     }
+        //     cube.classList.add( showClass );
+        //     currentClass = showClass;
+        // }
+        // // set initial side
+        // changeSide();
+
+        // radioGroup.addEventListener( 'change', changeSide );
     </script>
 </body>
 </html>

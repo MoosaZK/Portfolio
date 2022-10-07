@@ -12,7 +12,7 @@
     --VeryDarkBlue: #00172D;
     --Black: #000B18;
     --Green: #00CCCC;
-    --MidGreen: rgba(0,204,204,0.2);
+    --MidGreen: rgb(1, 69, 69);
     --DarkGreen: #004958;
     --logofont: 'Sen', sans-serif;
     --textfont:  'Cairo', Courier, monospace;
@@ -74,7 +74,7 @@ nav{
     top: 0;
     right: 0;
     left: 0;
-    width: 90%;
+    width: 90vw;
     height: 12vh;
     display: flex;
     align-items: center;
@@ -342,33 +342,35 @@ nav .socialLinks .linksContainer a{
 .desNav ul li{
     padding: 1px 10px;
     border-bottom: 2px solid var(--DarkGreen);
+    color: var(--lightGrey);
 }
 .desNav ul li:hover{
     border-bottom: 2px solid var(--Green);
-    
+    cursor: pointer;
 }
-.desNav ul li a{
+/* .desNav ul li a{
     text-decoration: none;
     color: white;
     font-size: 16px;
-}
-.description .contentBoxes{
-    /* border: 2px solid greenyellow; */
+} */
+/* .description .contentBoxes{
+    border: 2px solid greenyellow;
     margin-top: 20px;
-}
+} */
 
 
   .scene {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     border: 1px solid #CCC;
     margin: 80px;
     perspective: 400px;
+    /* border: 2px solid lightblue; */
   }
   
   .cube {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(-100px);
@@ -384,29 +386,27 @@ nav .socialLinks .linksContainer a{
   
   .cube__face {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 270px;
+    height: 270px;
     border: 2px solid black;
-    line-height: 200px;
-    font-size: 40px;
-    font-weight: bold;
     color: white;
     text-align: center;
+    border-radius: 15px;
   }
   
-  .cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
-  .cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
-  .cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
-  .cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
-  .cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
-  .cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+  .cube__face--front  { background: var(--MidGreen); }
+  .cube__face--right  { background: var(--MidGreen); }
+  .cube__face--back   { background: var(--MidGreen); }
+  .cube__face--left   { background: var(--MidGreen); }
+  .cube__face--top    { background: var(--MidGreen); }
+  .cube__face--bottom { background: var(--MidGreen); }
   
-  .cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
-  .cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
-  .cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
-  .cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
-  .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
-  .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+  .cube__face--front  { transform: rotateY(  0deg) translateZ(150px); }
+  .cube__face--right  { transform: rotateY( 90deg) translateZ(150px); }
+  .cube__face--back   { transform: rotateY(180deg) translateZ(150px); }
+  .cube__face--left   { transform: rotateY(-90deg) translateZ(150px); }
+  .cube__face--top    { transform: rotateX( 90deg) translateZ(150px); }
+  .cube__face--bottom { transform: rotateX(-90deg) translateZ(150px); }
   .radio-group{
     color: white;
   }
