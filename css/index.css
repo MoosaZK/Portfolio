@@ -12,7 +12,7 @@
     --VeryDarkBlue: #00172D;
     --Black: #000B18;
     --Green: #00CCCC;
-    --MidGreen: rgb(1, 69, 69);
+    --MidGreen: rgb(2, 93, 93);
     --DarkGreen: #004958;
     --logofont: 'Sen', sans-serif;
     --textfont:  'Cairo', Courier, monospace;
@@ -63,6 +63,7 @@ h2{
     color: var(--Green);
     font-size: clamp(1.5rem,5vw,2rem);
     font-weight: 700;
+    
 
 }
 p{
@@ -74,18 +75,18 @@ nav{
     top: 0;
     right: 0;
     left: 0;
-    width: 90vw;
+    width: 80vw;
     height: 12vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 99999;
-    padding: 0 5%;
+    padding: 0 10%;
     transition: all 300ms ease-in-out;
 
 }
 
-nav ul{
+.nav-links{
     position: relative;
     display: flex;
     align-items: center;
@@ -268,7 +269,7 @@ nav .socialLinks .linksContainer a{
     position: relative;
     grid-area: picContainer;
     aspect-ratio: 1/1;
-    width: min(70%, 460px);
+    width: min(85%, 460px);
     
 }
 .profilePicContainer{
@@ -348,29 +349,16 @@ nav .socialLinks .linksContainer a{
     border-bottom: 2px solid var(--Green);
     cursor: pointer;
 }
-/* .desNav ul li a{
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-} */
-/* .description .contentBoxes{
-    border: 2px solid greenyellow;
-    margin-top: 20px;
-} */
-
-
   .scene {
-    width: 280px;
-    height: 280px;
-    border: 1px solid #CCC;
+    width: 300px;
+    height: 300px;
     margin: 80px;
     perspective: 400px;
-    /* border: 2px solid lightblue; */
   }
   
   .cube {
-    width: 280px;
-    height: 280px;
+    width: 270px;
+    height: 270px;
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(-100px);
@@ -388,39 +376,31 @@ nav .socialLinks .linksContainer a{
     position: absolute;
     width: 270px;
     height: 270px;
-    border: 2px solid black;
     color: white;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 5px;
   }
   
-  .cube__face--front  { background: var(--MidGreen); }
-  .cube__face--right  { background: var(--MidGreen); }
-  .cube__face--back   { background: var(--MidGreen); }
-  .cube__face--left   { background: var(--MidGreen); }
-  .cube__face--top    { background: var(--MidGreen); }
-  .cube__face--bottom { background: var(--MidGreen); }
+  .cube__face--front  { background: var(--DarkBlue); border: 3px solid var(--Green); }
+  .cube__face--right  { background: var(--DarkBlue); border: 3px solid var(--Green);}
+  .cube__face--back   { background: var(--DarkBlue); border: 3px solid var(--Green);}
+  .cube__face--left   { background: var(--DarkBlue); border: 3px solid var(--Green);}
+  .cube__face--top    { background: var(--DarkBlue); border: 3px solid var(--Green);}
+  .cube__face--bottom { background: var(--DarkBlue); border: 3px solid var(--Green);}
   
-  .cube__face--front  { transform: rotateY(  0deg) translateZ(150px); }
-  .cube__face--right  { transform: rotateY( 90deg) translateZ(150px); }
-  .cube__face--back   { transform: rotateY(180deg) translateZ(150px); }
-  .cube__face--left   { transform: rotateY(-90deg) translateZ(150px); }
-  .cube__face--top    { transform: rotateX( 90deg) translateZ(150px); }
-  .cube__face--bottom { transform: rotateX(-90deg) translateZ(150px); }
+  .cube__face--front  { transform: rotateY(  0deg) translateZ(135px); }
+  .cube__face--right  { transform: rotateY( 90deg) translateZ(135px); }
+  .cube__face--back   { transform: rotateY(180deg) translateZ(135px); }
+  .cube__face--left   { transform: rotateY(-90deg) translateZ(135px); }
+  .cube__face--top    { transform: rotateX( 90deg) translateZ(135px); }
+  .cube__face--bottom { transform: rotateX(-90deg) translateZ(135px); }
   .radio-group{
     color: white;
   }
   label { margin-right: 10px; }  
-
-/* .description .contentBoxes .desbox{
-    color: white;
-    width: 50%;
-    margin:auto 0;
-    background-color:var(--MidGreen);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 3px 3px 5px var(--Green);
-} */
+.cube__face .content{
+    padding: 15px;
+}
 /* Aboout Section End */
 
 /* FadedCircle 1 Start */
@@ -713,7 +693,6 @@ nav .socialLinks .linksContainer a{
         position: absolute;
         right: 0px;
         height: 92vh;
-        /* width: 46vw; */
         top: 0vh;
         background-image: linear-gradient(45deg, #003333, #001128);
         display: flex;
@@ -819,6 +798,12 @@ nav .socialLinks .linksContainer a{
     .aboutContainer div{
         margin: 0 auto;
     }
+    .description{
+        padding-top: 50px;
+    }
+    .contentBoxes{
+        padding-top: 40px;
+    }
     .skillsContainerRow1{
         position: relative;
         display: grid;
@@ -861,5 +846,11 @@ nav .socialLinks .linksContainer a{
         margin: auto;
         margin-top: 8rem;
         width: 100%;
+    }
+    .contactContentContainer h3{
+        font-size: 23px;
+    }
+    .contactContentContainer p{
+        font-size: 16px;
     }
 }
