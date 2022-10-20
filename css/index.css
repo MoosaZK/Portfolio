@@ -397,9 +397,15 @@ nav .socialLinks .linksContainer a{
   .radio-group{
     color: white;
   }
-  label { margin-right: 10px; }  
-.cube__face .content{
+label { 
+    margin-right: 10px; 
+}  
+
+.cube__face .content {
     padding: 15px;
+}
+.cube__face .content h5{
+    font-size:medium;
 }
 /* Aboout Section End */
 
@@ -489,7 +495,9 @@ nav .socialLinks .linksContainer a{
 .skills .contentContainer{
     color: lightgray;
     padding: 1rem 3rem;
-    
+}
+.skills .contentContainer p{
+    line-height: 1.4em;
 }
 /* Skill Section End */
 
@@ -537,7 +545,7 @@ nav .socialLinks .linksContainer a{
     grid-area: "proj3";
 }
 .porjectsContainer{
-    width: 85%;
+    width: 300px;
     background-color: var(--DarkBlue);
     border-radius: 5px;
     padding: 20px 20px;   
